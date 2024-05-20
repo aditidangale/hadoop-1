@@ -1,7 +1,7 @@
 Apache pig tutorial
 
 1. Download Apache Pig in hduser home directory.
-      https://mirrors.estointernet.in/apache/pig/pig-0.16.0/pig-0.16.0.tar.gz
+      wget https://mirrors.estointernet.in/apache/pig/pig-0.16.0/pig-0.16.0.tar.gz
 
 2. extract the tar file.
       tar -xvf pig-0.16.0.tar.gz 
