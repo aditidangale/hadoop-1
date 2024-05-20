@@ -41,12 +41,12 @@ open terminal
                   tar xvzf hadoop-3.4.0.tar.gz        .................. (hadoop-3.4.0.tar.gz     filename which is downloaded)
                   sudo mv hadoop-3.4.0/* /usr/local/hadoop           .................. copying the file
                   sudo chown -R hduser:hduser /usr/local/hadoop      .................. hduser   is a username
-                  sudo chown -R 755 /usr/local/hadoop
+                  sudo chmod -R 755 /usr/local/hadoop
 
                   cd /usr/lib/jvm/java-8-openjdk-amd64/
                   pwd                                   ................ (copy the below path)
                        output                   /usr/lib/jvm/java-8-openjdk-amd64   
-                  nano .bashrc
+                  nano ~/.bashrc
                           edit this file
                         export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
                         export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
@@ -57,7 +57,7 @@ open terminal
                         export CLASSPATH=$CLASSPATH:$(hadoop classpath)
                         export PDSH_RCMD_TYPE=ssh
 
-                   source .bashrc
+                   source ~/.bashrc
 
 
                   - set timezone
@@ -82,7 +82,7 @@ open terminal
                   - copy the JAVA_HOME                      .......  (copy the JAVA_HOME hole line)
                     JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-               cd /etc/hadoop
+               cd /usr/local/hadoop/etc/hadoop
                nano hadoop-env.sh
                    - edit into this file pate at the last which is copied (JAVA_HOME hole line)
                        JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -132,7 +132,7 @@ open terminal
              - now tell masterr which worker nodes are there
                    nano workers
                                 --- edit this file
-                                       remove localhost
+                                       # remove localhost
                                        DN1
                                        DN2
 
