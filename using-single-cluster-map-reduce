@@ -96,7 +96,7 @@ public class WordCount {
 
  hdfs dfs -ls /wordcount
  hdfs dfs -ls /wordcount/output
- hdfs dfss -cat /wordcount/output/part-r-00000
+ hdfs dfs -cat /wordcount/output/part-r-00000
 
 -----------------------------------------------------------------------------------
 for single cluster (if error comes) in below file
