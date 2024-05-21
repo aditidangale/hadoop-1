@@ -6,19 +6,22 @@ Apache pig tutorial
 2. extract the tar file.
       tar -xvf pig-0.16.0.tar.gz 
 
+    sudo mv pig-0.16.0 /usr/local
+
 3. Open the bashrc file 
 
-       sudo nano ~/.bashrc  
+      sudo vim /etc/bash.bashrc
+         
 
        add the following Pig environment variables.
-
-        export PIG_HOME=/home/hduser/pig-0.16.0  
+        export PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin
+        export PIG_HOME=/usr/local/pig-0.16.0  
         export PATH=$PATH:$PIG_HOME/bin 
 
          Save the file.
 
 4. Update shell environment
-         source ~/.bashrc  
+       source /etc/bash.bashrc
 
 5. Check Pig
          source ~/.bashrc  
@@ -63,11 +66,27 @@ Save the file.
 
 Then start pig in interactive mode. And type following 
 
-demo  =   LOAD '/pig-test/demo.txt' USING PigStorage(',') 
-   as (id:int,name:chararray,age:int,city:chararray);
-
+demo  =   load '/home/hduser/demo.txt' using PigStorage(',') as (id:int,name:chararray,age:int,city:chararray);
 dump demo;
-  
 
 
+
+
+
+  ====================================================================================================================================================
+
+
+
+  for map -reduce
+
+       hdfs dfs -mkdir /pig-test
+       hdfs dfs -put demo.txt /pig-test/
+       pig
+           demo  =   load '/home/hduser/demo.txt' using PigStorage(',') as (id:int,name:chararray,age:int,city:chararray);
+           dump demo;
+
+
+
+ if error comes add below line   (in simple command prompt)
+      mr-jobhistory-daemon.sh start historyserver
  
